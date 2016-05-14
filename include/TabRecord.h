@@ -8,14 +8,15 @@ protected:
 	KeyType key;
 	DataType *data;
 public:
+	TabRecord();
 	TabRecord(KeyType,DataType*);
 	KeyType GetKey() const;
 	DataType* GetData() const;
 	TabRecord& operator=(const TabRecord&);
-	bool operator==(const TabRecord&) const;
-	bool operator!=(const TabRecord&) const;
-	bool operator>=(const TabRecord&) const;
-	bool operator<=(const TabRecord&) const;
-	bool operator>(const TabRecord&) const;
-	bool operator<(const TabRecord&) const;
+	virtual bool operator==(const TabRecord&) const;
+	virtual bool operator!=(const TabRecord&) const;
+	virtual bool operator>=(const TabRecord&) const;
+	virtual bool operator<=(const TabRecord&) const;
+	virtual bool operator>(const TabRecord&) const;
+	virtual bool operator<(const TabRecord&) const;
 };
