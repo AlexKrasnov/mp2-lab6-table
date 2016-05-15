@@ -1,54 +1,18 @@
 #include "TabRecord.h"
 
-TabRecord::TabRecord(KeyType _key, DataType* _data)
-{
-	key=_key;
-	data=_data;
-}
-
 KeyType TabRecord::GetKey() const
 {
-	return key;
+	return this->key;
 }
 
-DataType* TabRecord::GetData() const
+char* TabRecord::GetData() const
 {
-	return data;
+	return this->data;
 }
 
 TabRecord& TabRecord:: operator=(const TabRecord& tab)
 {
-	key=tab.GetKey();
-	data=tab.GetData();
+	this->key=tab.GetKey();
+	this->data=tab.GetData();
 	return *this;
-}
-
-bool TabRecord:: operator==(const TabRecord& tab) const
-{
-	return key==tab.GetKey();
-}
-
-bool TabRecord:: operator!=(const TabRecord& tab) const
-{
-	return key!=tab.GetKey();
-}
-
-bool TabRecord:: operator>=(const TabRecord& tab) const
-{
-	return key>=tab.GetKey();
-}
-
-bool TabRecord:: operator<=(const TabRecord& tab) const
-{
-	return key<=tab.GetKey();
-}
-
-bool TabRecord:: operator>(const TabRecord& tab) const
-{
-	return key>tab.GetKey();
-}
-
-bool TabRecord:: operator<(const TabRecord& tab) const
-{
-	return key<tab.GetKey();
 }
