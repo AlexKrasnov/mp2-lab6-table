@@ -1,9 +1,9 @@
-#include "Table.h"
+﻿#include "Table.h"
 
 bool Table::IsEmpty() const
 {
-	if (count == 0) return false;
-	return true;
+	if (count == 0) return true;
+	return false;
 }
 
 bool Table::IsFull() const
@@ -30,4 +30,21 @@ int Table::GetSize() const
 int Table::GetEfficiency() const
 {
 	return efficiency;
+}
+
+int Table::Reset()
+{
+	pos = 0;
+	return IsTabEnded();
+}
+
+int Table::IsTabEnded() const
+{
+	return pos>=count;
+}
+
+int Table::GoNext()
+{
+	if (!IsTabEnded()) pos++;
+	return IsTabEnded();
 }

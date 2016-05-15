@@ -1,48 +1,28 @@
-#pragma once
-#include <iostream>
-#include <locale>
+п»ї#pragma once
 #include "TabRecord.h"
-
-using namespace std;
 
 class Table : public TabRecord
 {
 protected:
-	int size;        // размер
-	int count;       // к-во записей
-	int pos;         // позиция
-	int efficiency;  // эффективность
+	int size;        // СЂР°Р·РјРµСЂ
+	int count;       // Рє-РІРѕ Р·Р°РїРёСЃРµР№
+	int pos;         // РїРѕР·РёС†РёСЏ
+	int efficiency;  // СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚СЊ
 public:
-	Table(): count(0), pos(0), efficiency(0) {}
-	Table(int);
-    // информационные методы
+	Table(int s =10): count(0), pos(0), efficiency(0), size(s){};
+    // РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рµ РјРµС‚РѕРґС‹
 	int GetSize() const;
 	int GetCount() const;
 	int GetPos() const;
 	int GetEfficiency() const;
 	bool IsEmpty(void) const;
 	bool IsFull(void) const;
-	// основные методы
-	virtual TabRecord Find (KeyType) = 0;
+	// РѕСЃРЅРѕРІРЅС‹Рµ РјРµС‚РѕРґС‹
+	virtual TabRecord* Find (KeyType) = 0;
 	virtual void Ins (KeyType, DataType*) = 0;
 	virtual void Del (KeyType) = 0;
-	// навигация
-	virtual int Reset () = 0;
-	virtual int IsTabEnded () const = 0;
-	virtual int GoNext () = 0;
-	// доступ
-	virtual KeyType GetKey() const = 0;
-	virtual DataType* GetData() const = 0;
-	// печать таблицы 
-	friend ostream& operator<< (ostream &os, Table &tab)
-	{
-		setlocale(LC_ALL,"Rus");
-		cout << "Печать таблицы" <<endl;
-		for (tab.Reset();tab.IsTabEnded(); tab.GoNext())
-		{
-			os << "Ключ: " << tab.GetKey() 
-			   << "Данные: " << tab.GetData(); os << endl;
-		}
-		return os;
-	}
+	// РЅР°РІРёРіР°С†РёСЏ
+	virtual int Reset ();
+	virtual int IsTabEnded () const;
+	virtual int GoNext ();
 };
