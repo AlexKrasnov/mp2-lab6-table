@@ -1,4 +1,4 @@
-#include "TabRecord.h"
+﻿#include "TabRecord.h"
 
 KeyType TabRecord::GetKey() const
 {

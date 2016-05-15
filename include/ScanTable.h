@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Table.h"
 
 class ScanTable : public Table
@@ -16,12 +16,12 @@ public:
 	friend ostream& operator<< (ostream &os, ScanTable &tab)
 	{
 		setlocale(LC_ALL,"Rus");
-		os << "Ïå÷àòü òàáëèöû: " <<endl;
+		os << "ÐŸÐµÑ‡Ð°Ñ‚ÑŒ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹: " <<endl;
 		os<<"+----------------------------------------------------"<<endl;
 		for (tab.Reset();!tab.IsTabEnded(); tab.GoNext())
 		{
-			os << "|\tÊëþ÷: " << tab.rec[tab.GetPos()]->GetKey() 
-			   <<" Äàííûå: " << tab.rec[tab.GetPos()]->GetData(); os << endl;
+			os << "|\tÐšÐ»ÑŽÑ‡: " << tab.rec[tab.GetPos()]->GetKey() 
+			   <<" Ð”Ð°Ð½Ð½Ñ‹Ðµ: " << tab.rec[tab.GetPos()]->GetData(); os << endl;
 		}
 		os<<"+----------------------------------------------------"<<endl<<endl;
 		return os;

@@ -1,4 +1,4 @@
-#include "ScanTable.h"
+﻿#include "ScanTable.h"
 
 ScanTable:: ScanTable(int size): Table(size)
 {
