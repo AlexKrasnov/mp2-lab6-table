@@ -1,18 +1,18 @@
 ﻿#include "TabRecord.h"
 
-KeyType TabRecord::GetKey() const
+KeyType TabRecord::GetKey()
 {
-	return this->key;
+	return key;
 }
 
-char* TabRecord::GetData() const
+DataType* TabRecord::GetData()
 {
-	return this->data;
+	return data;
 }
 
 TabRecord& TabRecord:: operator=(const TabRecord& tab)
 {
-	this->key=tab.GetKey();
-	this->data=tab.GetData();
+	key=tab.key;
+	data=tab.data;
 	return *this;
 }
