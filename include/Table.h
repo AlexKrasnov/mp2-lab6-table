@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "TabRecord.h"
 
+#define TabMaxSize 100
+
 class Table
 {
 protected:
@@ -9,7 +11,7 @@ protected:
 	int pos;         // позиция
 	int efficiency;  // эффективность
 public:
-	Table(int s =10): count(0), pos(0), efficiency(0), size(s){};
+	Table(int s = TabMaxSize): count(0), pos(0), efficiency(0), size(s){};
     // информационные методы
 	bool IsEmpty(void) const;
 	bool IsFull(void) const;

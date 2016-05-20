@@ -6,10 +6,9 @@ class ScanTable : public Table
 protected:
 	TabRecord **rec;
 public:
-	ScanTable(){};
-	ScanTable(int);
+	ScanTable(int size = TabMaxSize);
 	ScanTable(const ScanTable&);
-	/*virtual*/ ~ScanTable();
+	virtual ~ScanTable();
 	virtual TabRecord* Find (KeyType);
 	virtual void Ins (KeyType, DataType*);
 	virtual void Del (KeyType);

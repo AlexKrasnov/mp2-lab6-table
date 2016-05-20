@@ -46,6 +46,7 @@ void ScanTable::Ins(KeyType k, DataType* d)
 	if (!IsFull())
 	{
 		rec[count++] = new TabRecord(k, d);
+		efficiency++;
 	}
 }
 
@@ -57,6 +58,7 @@ void ScanTable::Del(KeyType k)
 		{ 
 			delete rec[pos]; 
 			rec[pos] = rec[--count]; 
+			efficiency++;
 		} 
 	}
 }
