@@ -12,26 +12,6 @@ bool Table::IsFull() const
 	return false;
 }
 
-int Table::GetCount() const
-{
-	return count;
-}
-
-int Table::GetPos() const
-{
-	return pos;
-}
-
-int Table::GetSize() const
-{
-	return size;
-}
-
-int Table::GetEfficiency() const
-{
-	return efficiency;
-}
-
 int Table::Reset()
 {
 	pos = 0;

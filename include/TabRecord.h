@@ -8,13 +8,12 @@ using namespace std;
 
 class TabRecord
 {
-protected:
+public:
 	KeyType key;
 	DataType *data;
-public:
 	TabRecord(){};
 	TabRecord(KeyType k,DataType* d) : key(k), data(d){};
-	KeyType GetKey() const;
-	char* GetData() const;
+	KeyType GetKey();
+	DataType* GetData();
 	TabRecord& operator=(const TabRecord&);
 };
