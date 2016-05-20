@@ -1,5 +1,5 @@
 #include "gtest.h"
-#include "ScanTable.h"
+#include "SortTable.h"
 
 TEST(Record, can_create_table)
 {
@@ -128,3 +128,65 @@ TEST(Scantable, throw_when_dell_from_empty_tab)
 	ASSERT_ANY_THROW(s.Del(3));
 }
 */
+TEST(Sorttable, can_create_table_by_size)
+{
+	ASSERT_NO_THROW(SortTable *tab = new SortTable(5));
+}
+
+TEST(Sorttable, can_create_table)
+{
+	ASSERT_NO_THROW(SortTable *tab = new SortTable());
+}
+
+TEST(Sorttable, can_copy_table)
+{
+	SortTable s(2);
+	ASSERT_NO_THROW(SortTable s1(s));
+}
+
+TEST(Sorttable, can_find)
+{
+	SortTable *s = new SortTable();
+	s->Find(1);
+	s->Find(5);
+	TabRecord* t;
+	ASSERT_NO_THROW(t = s->Find(5));
+}
+
+TEST(Sorttable, can_insert)
+{
+	SortTable s(5);
+	ASSERT_NO_THROW(s.Ins(3, "abc"));
+}
+
+TEST(Sorttable, insert_correctly)
+{
+	SortTable s(5);
+	ASSERT_NO_THROW(s.Ins(3, "abc"));
+	EXPECT_TRUE(s.Find(3)->GetData()=="abc");
+}
+
+TEST(Sorttable, insert_correctly_in_too_key)
+{
+	SortTable *s = new SortTable(5);
+	s->Ins(1, "a");
+	s->Ins(1, "b");
+	EXPECT_TRUE(s->Find(1)->GetData()=="b");
+}
+
+TEST(Sorttable, can_delete)
+{
+	SortTable *s = new SortTable(5);
+	s->Ins(1, "a");
+	s->Ins(2, "b");
+	ASSERT_NO_THROW(s->Del(1));
+}
+
+TEST(Sorttable, delete_correctly)
+{
+	SortTable *s = new SortTable(5);
+	s->Ins(1, "a");
+	s->Ins(2, "b");
+	s->Del(1);
+	EXPECT_TRUE(s->Find(1)==NULL);
+}
