@@ -1,19 +1,20 @@
 ﻿#pragma once
 #include <iostream>
 #include <locale>
-typedef int KeyType;
-typedef char DataType;
+#include <string>
+
+typedef std::string TKey;
+typedef char TData;
 
 using namespace std;
 
-class TabRecord
+struct TabRecord
 {
-public:
-	KeyType key;
-	DataType *data;
-	TabRecord(){};
-	TabRecord(KeyType k,DataType* d) : key(k), data(d){};
-	KeyType GetKey();
-	DataType* GetData();
-	TabRecord& operator=(const TabRecord&);
+	TKey key;      // ключ записи
+	TData *data;   // указатель на значение
+	TabRecord(TKey k="",TData* d=NULL) : key(k), data(d){}
+	TKey GetKey() { return key; }
+	TData* GetData() { return data; }
+	TabRecord& operator=(const TabRecord &t) { key = t.key; data = t.data; return *this; }
+	bool operator==(const TabRecord &t) const { return key==t.key && data == t.data; }
 };

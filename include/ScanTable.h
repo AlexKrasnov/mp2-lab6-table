@@ -9,9 +9,9 @@ public:
 	ScanTable(int size = TabMaxSize);
 	ScanTable(const ScanTable&);
 	virtual ~ScanTable();
-	virtual TabRecord* Find (KeyType);
-	virtual void Ins (KeyType, DataType*);
-	virtual void Del (KeyType);
+	virtual TabRecord* Find (TKey);
+	virtual void Ins (TKey, TData*);
+	virtual void Del (TKey);
 	friend ostream& operator<< (ostream &os, ScanTable &tab)
 	{
 		setlocale(LC_ALL,"Rus");

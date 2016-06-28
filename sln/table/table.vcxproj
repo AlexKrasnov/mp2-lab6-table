@@ -75,14 +75,23 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\ArrayHash.h" />
+    <ClInclude Include="..\..\include\HashTable.h" />
     <ClInclude Include="..\..\include\ScanTable.h" />
+    <ClInclude Include="..\..\include\SortTable.h" />
     <ClInclude Include="..\..\include\Table.h" />
     <ClInclude Include="..\..\include\TabRecord.h" />
+    <ClInclude Include="..\..\include\TreeNode.h" />
+    <ClInclude Include="..\..\include\TreeTable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\ArrayHash.cpp" />
+    <ClCompile Include="..\..\src\HashTable.cpp" />
     <ClCompile Include="..\..\src\ScanTable.cpp" />
+    <ClCompile Include="..\..\src\SortTable.cpp" />
     <ClCompile Include="..\..\src\Table.cpp" />
-    <ClCompile Include="..\..\src\TabRecord.cpp" />
+    <ClCompile Include="..\..\src\TreeNode.cpp" />
+    <ClCompile Include="..\..\src\TreeTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

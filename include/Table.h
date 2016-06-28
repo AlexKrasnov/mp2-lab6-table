@@ -11,14 +11,15 @@ protected:
 	int pos;         // позиция
 	int efficiency;  // эффективность
 public:
-	Table(int s = TabMaxSize): count(0), pos(0), efficiency(0), size(s){};
+	Table(int s = TabMaxSize): count(0), pos(0), efficiency(0), size(s) {}
+	virtual ~Table() {}
     // информационные методы
-	bool IsEmpty(void) const;
-	bool IsFull(void) const;
+	bool IsEmpty() const;
+	bool IsFull() const;
 	// основные методы
-	virtual TabRecord* Find (KeyType) = 0;
-	virtual void Ins (KeyType, DataType*) = 0;
-	virtual void Del (KeyType) = 0;
+	virtual TabRecord* Find (TKey) = 0;
+	virtual void Ins (TKey, TData*) = 0;
+	virtual void Del (TKey) = 0;
 	// навигация
 	virtual int Reset ();
 	virtual int IsTabEnded () const;

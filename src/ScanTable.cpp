@@ -3,6 +3,10 @@
 ScanTable:: ScanTable(int size): Table(size)
 {
 	rec = new TabRecord*[size];
+	for (int i=0; i<size; i++)
+	{
+		rec[i] = NULL;
+	}
 }
 
 ScanTable:: ScanTable(const ScanTable& tab)
@@ -23,7 +27,7 @@ ScanTable::~ScanTable()
 	delete[] rec;
 }
 
-TabRecord* ScanTable::Find(KeyType k)
+TabRecord* ScanTable::Find(TKey k)
 {
 	int i;
 	for (i=0; i<count; i++)
@@ -36,7 +40,7 @@ TabRecord* ScanTable::Find(KeyType k)
 		return NULL;
 }
 
-void ScanTable::Ins(KeyType k, DataType* d)
+void ScanTable::Ins(TKey k, TData* d)
 {
 	if (Find(k)!=NULL)
 	{
@@ -50,7 +54,7 @@ void ScanTable::Ins(KeyType k, DataType* d)
 	}
 }
 
-void ScanTable::Del(KeyType k)
+void ScanTable::Del(TKey k)
 {
 	if (!IsEmpty()) 
 	{ 

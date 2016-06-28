@@ -1,20 +1,21 @@
 #include "SortTable.h"
 #include "Table.h"
 
-SortTable::SortTable(const ScanTable *tab)
+SortTable::SortTable(const ScanTable& tab)
 {
-	size = tab->size;
-	count = tab->count;
+	size = tab.size;
+	count = tab.count;
 	pos = 0;
 	rec = new TabRecord*[size];
 	for (int i = 0; i < count; i++)
-		rec[i] = new TabRecord(tab->rec[i]->GetKey(), tab->rec[i]->GetData());
+		rec[i] = new TabRecord(tab.rec[i]->GetKey(), tab.rec[i]->GetData());
 	SortData();
 }
 
-TabRecord * SortTable::Find(KeyType key)
+TabRecord * SortTable::Find(TKey key)
 {
 	int i = 0, i1 = 0, i2 = count-1;
+	efficiency = 0;
 	TabRecord *rez = NULL;
 	while (i1 <= i2) 
 	{ 
@@ -33,13 +34,14 @@ TabRecord * SortTable::Find(KeyType key)
 		{
 			i2 = i-1; 
 		} 
+		efficiency++;
 	} 
 	pos = i; 
 	return rez;
 }
 
 
-void SortTable::Ins(KeyType k, DataType *d)
+void SortTable::Ins(TKey k, TData *d)
 {
 	if (IsFull())
 		return;
@@ -47,11 +49,12 @@ void SortTable::Ins(KeyType k, DataType *d)
 	for (int i = count; i > pos; i--)
 		rec[i] = rec[i - 1];
 	count++;
+	efficiency++;
 	rec[pos] = new TabRecord(k, d);
 	SortData();
 }
 
-void SortTable::Del(KeyType k)
+void SortTable::Del(TKey k)
 {
 	if (!IsEmpty()) 
 	{ 
