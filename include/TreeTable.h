@@ -1,7 +1,22 @@
 #pragma once
-#include "TreeNode.h"
+#include <iostream>
 #include <stack>
 #include "Table.h"
+
+using namespace std;
+
+class TreeNode : public TabRecord
+{
+public:
+	TreeNode *left, *right;
+public:
+	TreeNode(TKey k="", TData *d = NULL, TreeNode *l = NULL, TreeNode *r = NULL)
+		: TabRecord(k,d), left(l), right(r) {}
+	~TreeNode() {}
+	TreeNode* GetLeft() const { return left; }
+	TreeNode* GetRight() const { return right; }
+	friend class TreeTable;
+};
 
 class TreeTable : public Table 
 {
@@ -26,5 +41,4 @@ public:
 	virtual int GoNext ();
 	// печать таблицы
 	friend ostream& operator<< (ostream &os, TreeTable &tab);
-
 };
