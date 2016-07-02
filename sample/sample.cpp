@@ -1,5 +1,5 @@
 ﻿#include "SortTable.h"
-#include "ArrayHash.h"
+#include "HashTable.h"
 #include "TreeTable.h"
 
 void main()

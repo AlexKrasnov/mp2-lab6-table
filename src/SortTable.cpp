@@ -1,4 +1,4 @@
-#include "SortTable.h"
+﻿#include "SortTable.h"
 #include "Table.h"
 
 SortTable::SortTable(const ScanTable& tab)

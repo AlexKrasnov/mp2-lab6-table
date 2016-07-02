@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <stack>
 #include "Table.h"
@@ -21,24 +21,24 @@ public:
 class TreeTable : public Table 
 {
 public:
-	TreeNode* root;   // указатель на корень дерева
-	TreeNode** ref;   // адрес указателя на вершину-результата в Find
-	TreeNode* cur;    // указатель на текущую вершину
-	int curpos;      // номер текущей вершины
-	stack<TreeNode*> st;  // стек для итератора
+	TreeNode* root;   // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°
+	TreeNode** ref;   // Р°РґСЂРµСЃ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РІРµСЂС€РёРЅСѓ-СЂРµР·СѓР»СЊС‚Р°С‚Р° РІ Find
+	TreeNode* cur;    // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСѓС‰СѓСЋ РІРµСЂС€РёРЅСѓ
+	int curpos;      // РЅРѕРјРµСЂ С‚РµРєСѓС‰РµР№ РІРµСЂС€РёРЅС‹
+	stack<TreeNode*> st;  // СЃС‚РµРє РґР»СЏ РёС‚РµСЂР°С‚РѕСЂР°
 	void PrintTreeTab (TreeNode* node);
 public:
 	TreeTable() : Table() { curpos = 0; root = cur = NULL; ref = NULL;}
 	~TreeTable() {}
 	virtual int isFull() const;
-	//  основные методы
+	//  РѕСЃРЅРѕРІРЅС‹Рµ РјРµС‚РѕРґС‹
 	virtual TabRecord* Find (TKey);
 	virtual void Ins (TKey, TData*);
 	virtual void Del (TKey);
-	// навигация
+	// РЅР°РІРёРіР°С†РёСЏ
 	virtual int Reset ();
 	virtual int IsTabEnded ();
 	virtual int GoNext ();
-	// печать таблицы
+	// РїРµС‡Р°С‚СЊ С‚Р°Р±Р»РёС†С‹
 	friend ostream& operator<< (ostream &os, TreeTable &tab);
 };

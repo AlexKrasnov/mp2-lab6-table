@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "ScanTable.h"
 
 class SortTable : public ScanTable

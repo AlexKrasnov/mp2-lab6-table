@@ -1,6 +1,6 @@
-#include "gtest.h"
+﻿#include "gtest.h"
 #include "SortTable.h"
-#include "ArrayHash.h"
+#include "HashTable.h"
 
 TEST(Record, can_create_table)
 {
